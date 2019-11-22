@@ -10,7 +10,8 @@ main = do
   putStrLn "Enter your numbers! company hours price"
   (year, month, day) <- getCurrentTime >>= return . toGregorian . utctDay
   (company : nums) <- getLine >>= return . words
-  let period = intercalate " - " [dateFormat year month 1, dateFormat year month $ gregorianMonthLength year month]
+  let withYearMonth = dateFormat year month
+  let period = intercalate " - " $ map withYearMonth [1, gregorianMonthLength year month]
   putStrLn 
     $ foldl (\init item -> init ++ item ++ "\n") ""
       . map (\(x, y) -> x ++ ": " ++ y)
