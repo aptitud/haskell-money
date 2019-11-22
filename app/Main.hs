@@ -4,7 +4,7 @@ import Text.Printf
 import Data.Time
 import Data.List
 
-main :: IO ()
+-- main :: IO ()
 
 main = do
   putStrLn "Enter your numbers! company hours price"
